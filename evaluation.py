@@ -107,9 +107,6 @@ def main():
         _, top_indices = scores.topk(10)
         result = [paper_ids[i] for i in top_indices.tolist()]    
 
-    #breakpoint()
-
-
 
     ################################################
     #               YOUR CODE END                  #

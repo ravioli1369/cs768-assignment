@@ -1,46 +1,14 @@
 import re
 import torch
-import shutil
 import pickle
 import numpy as np
 import torch.nn as nn
-import networkx as nx
 import torch.nn.functional as F
 from pathlib import Path
 from torch_geometric.data import Data
 from torch_geometric.nn import SAGEConv
 from torch_geometric.utils import negative_sampling
 from sklearn.feature_extraction.text import TfidfVectorizer
-
-from matplotlib import pyplot as plt
-mlp_params = {
-    "figure.figsize": [9, 6],
-    "axes.labelsize": 22,
-    "axes.titlesize": 24,
-    "axes.titlepad": 15,
-    "figure.titlesize": 24,
-    "axes.labelpad": 10,
-    "font.size": 16,
-    "legend.fontsize": 18,
-    "xtick.labelsize": 16,
-    "ytick.labelsize": 16,
-    "text.usetex": True if shutil.which("latex") else False,
-    "font.family": "serif",
-    "xtick.minor.visible": True,
-    "ytick.minor.visible": True,
-    "xtick.top": True,
-    "ytick.left": True,
-    "ytick.right": True,
-    "xtick.direction": "out",
-    "ytick.direction": "out",
-    "xtick.minor.size": 2.5,
-    "xtick.major.size": 5,
-    "ytick.minor.size": 2.5,
-    "ytick.major.size": 5,
-    "axes.axisbelow": True,
-    "figure.dpi": 200,
-}
-plt.rcParams.update(mlp_params)
 
 
 def extract_titles_and_paths(root):
