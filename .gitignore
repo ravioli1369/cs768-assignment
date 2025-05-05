@@ -1,4 +1,3 @@
 dataset_papers
-*.pt
-*.pickle
 *.tar.gz
+*.pyc
